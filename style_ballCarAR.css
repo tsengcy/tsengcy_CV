@@ -142,11 +142,16 @@ footer {
 }
 .video_container {
     position: relative;
-    width: 60%;
+    width: 600px;
+    height: 337.5px;
+    /* height: 100%; */
+    /* max-width: 600px; */
+    /* max-height: 100px; */
     /* height: 60%; */
     overflow: hidden;
-    padding-top: 33.774%; /* 16:9 Aspect Ratio */
-    /* padding-top: 56.25%; */
+    /* padding-top: 56.25%;  */
+    /*16:9 Aspect Ratio */
+    /* padding-top: ; */
     display: block;
     margin-left: auto;
     margin-right: auto;
