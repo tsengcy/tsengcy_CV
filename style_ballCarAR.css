@@ -93,25 +93,41 @@ footer {
 
 #img_description{
     height: auto;
-    width: 60%;
-    max-width: 80%;
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #img_UI{
     height: auto;
-    width: 60%;
-    max-width: 80%;
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #controller{
     height: auto;
-    width: 60%;
-    max-width: 80%;
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 #signal_flow{
     height: auto;
-    width: 60%;
-    max-width: 80%;
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image_text{
+    text-align: center;
 }
 
 .video{
@@ -131,6 +147,9 @@ footer {
     overflow: hidden;
     padding-top: 33.774%; /* 16:9 Aspect Ratio */
     /* padding-top: 56.25%; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 footer p {
