@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tsengcy CV</title>
+    <link rel="stylesheet" href="style_ballCatching.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <button class="top-left-button" onclick="window.location.href='./home.html';">
+                <img src="image/backmarker.png" id="back_image"/>
+            </button>
+            <h1>接球實驗</h1>
+        </div>
+    </header>
+
+    <section id="introduction" class="section">
+        <div class="container">
+            <h2>Introduction</h2>
+            <p>本專題為<a href="https://www.liebertpub.com/doi/10.1089/soro.2023.0111" target="_blank">軟性手掌開發</a>的實驗之一, 利用RealSense觀測目標物的軌跡, 並利用公式預測目標物的落點,
+                六軸機器手臂與軟性手掌做結合執行接球的任務。</p>
+        </div>
+    </section>
+
+    <section id="introduction" class="section">
+        <div class="container">
+            <h2>Methodology</h2>
+            <h3>實驗設置</h3>
+            <p>
+                本實驗所使用的設備包含Realsense435i、機器手臂、軟性機械手掌，實驗架設如下圖，於機器手臂的側邊安裝RealSense相機，利用延伸自機器手臂底座之鋁擠型安裝校正板，並利用相機校正的方法取的相機與機器手臂之間的相對關係。
+            </p>
+            <p>實驗環境</p>
+            <img src="image/ballCatching/experiment_setup.png" id="img_setup"/>
+            <h3>目標物觀測與預測</h3>
+            <p>本文利用Realsense435觀測球在空間中的軌跡，首先本實驗假設球所運動的空間中並沒有障礙物，故相機視野中預期球運動的空間只要有物體便是球，利用Realsense的深度圖與相機模型回推出球相對於做相機坐標系的位置，</p>
+
+            <h3>控制流程</h3>
+        </div>
+    </section>
+
+    
+    <section id="video" class="section">
+        <div class="container">
+            <h2>Experiment Video</h2>
+            <p></p>
+        </div>
+    </section>
+
+    
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Chien-Yao Tseng. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
