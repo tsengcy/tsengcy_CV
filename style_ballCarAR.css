@@ -91,6 +91,29 @@ footer {
     padding: 10px 0;
 }
 
+#img_description{
+    height: auto;
+    width: 30em;
+    max-width: 80%;
+}
+
+#img_UI{
+    height: auto;
+    width: 30em;
+    max-width: 80%;
+}
+
+#controller{
+    height: auto;
+    width: 20em;
+    max-width: 80%;
+}
+#signal_flow{
+    height: auto;
+    width: 40em;
+    max-width: 80%;
+}
+
 footer p {
     font-size: 0.9em;
 }
