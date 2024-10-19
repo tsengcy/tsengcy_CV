@@ -70,6 +70,67 @@ a:hover {
     text-decoration: underline;
 }
 
+/* precentage circle */
+
+.circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#c90{
+    background: conic-gradient(#4caf50 0% 90%, #ddd 90% 100%);
+    font-size: 12px;
+}
+#c85{
+    background: conic-gradient(#4caf50 0% 85%, #ddd 85% 100%);
+    font-size: 12px;
+}
+#c80{
+    background: conic-gradient(#4caf50 0% 80%, #ddd 80% 100%);
+    font-size: 12px;
+}
+#c70{
+    background: conic-gradient(#4caf50 0% 70%, #ddd 70% 100%);
+    font-size: 12px;
+}
+#c60{
+    background: conic-gradient(#4caf50 0% 60%, #ddd 60% 100%);
+    font-size: 12px;
+}
+  
+.inner-circle { 
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.percentage {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.circle-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* This spaces the circles evenly */
+    align-items: center;
+    width: 100%; /* Ensures the circles are centered */
+}
+
+.text{
+  text-align: center;
+}
+  
+
 footer {
     background-color: #333;
     color: #fff;
