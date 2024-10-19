@@ -17,94 +17,43 @@
     <section id="introduction" class="section">
         <div class="container">
             <h2>Introduction</h2>
+            <p>本專題為機械設計原理的期末專題目標為設計一台車輛能透過遙控裝置控制車輛之動作，並控制其中設備利用竹筷作為撞擊工具撞擊場地中所有的球使其入袋。</p>
+            <img src="image/ballCar/ground.png" class="img"/>
+            <p class="text_img"><b>場地示意圖</b></p>
         </div>
     </section>
 
     <section id="education" class="section">
         <div class="container">
-            <h2>Education</h2>
-            <div class="education">
-                <h3>機械工程學系研究所 系統控制組 (2022.09 ~ 2024.08)</h3>
-                <p>國立台灣大學</p>
+            <h2>Design</h2>
+            <p>為提供有效撞擊能量，本文設計利用兩個馬達達成此任務，第一個拉動滑塊曲柄機構同步拉伸彈簧提供位能；第二個則作為開關竹筷向前彈射。此方法相較於常見的齒輪尺條的設計能避免齒輪損壞的危險以及提供不同的彈射強度方便使用者做操作。</p>
+            <img src="image/ballCar/linkage_working.png" class="img"/>
+            <p class="text_img"><b>滑塊撞擊機構運作原理圖</b><br>(1)為初始狀態；(2)滑塊做拉伸同步帶動彈簧的拉長，此步驟可以透過改變曲柄的旋轉角度來控制彈簧所儲存的位能；
+                (3)釋放開關，將彈簧的位能轉變為擊球機構的動能；(4)將曲柄與開關做歸位。</p>
+            <img src="image/ballCar/hitting2.png" class="img"/>
+            <p class="text_img"><b>撞擊機構概念圖與成品</b></p>
+            <div class="video_container"> 
+                <iframe class="video" src="https://www.youtube.com/embed/gGTzQJo1KSU?si=VW-YpOcS2vR0lheG" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
             </div>
-            <div class="education">
-                <h3>機械工程學系 (2018.09 ~ 2022.08)</h3>
-                <p>國立台灣大學</p>
-            </div>
+            <p class="text_img"><b>撞擊機構運作影片</b></p>
+            
+
+            <p>移動系統則是採用常見的兩輪驅動的方式來做移動；控制系統的部分則使已Arduino來控制各個電機並以PS2手把作為訊號輸入源來控制撞球車之動作。</p>
+            <img src="image/ballCar//whole.jpg" class="img"/>
+            <p class="text_img"><b>撞球車成品圖</b></p>
         </div>
     </section>
 
-    <section id="experience" class="section">
+    <section id="education" class="section">
         <div class="container">
-            <h2>Experience</h2>
-            <div class="job">
-                <h3>課程助教 (ME5043 機器人視覺)</h3>
-                <p>2023.03 - 2023.06</p>
-                <ul>
-                    <li>協助課程作業批改與實驗設計</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>撞球車</h3>
-                <p>本專題利用滑塊曲柄機構拉動彈簧, 提供撞球所需的能量。同時利用Ps2搖桿與Arduino控制車輛的動作</p>
-                <p>ability: 機構設計, Arduino</p>
-            </div>
-            <div class="project">
-                <h3>撞球車AR</h3>
-                <p>本專題延伸自撞球車專題, 利用Unity與vuforia engine實現撞球車的功能介紹與展示, 同時利用物理引擎實現在虛擬環境中執行撞球車的任務</p>
-                <p>ability: Unity, C#, Arduino</p>
-            </div>
-            <div class="project">
-                <h3>風洞車</h3>
-                <p>本專題延伸自撞球車專題, 利用Unity與vuforia engine實現撞球車的功能介紹與展示, 同時利用物理引擎實現在虛擬環境中執行撞球車的任務</p>
-                <p>ability: Unity, C#, Arduino</p>
-            </div>
-            <div class="project">
-                <h3>寫字機器人</h3>
-                <p>本專題利用視覺作為回授工具以控制2DOF機器手臂之動作, 並製作簡單UI</p>
-                <p>ability: C++, Computer Vision, Arduino, Qt</p>
-            </div>
-            <div class="project">
-                <h3>接球實驗</h3>
-            </div>
-            <div class="project">
-                <h3>ARMSLAM</h3>
-            </div>
-        </div>
-    </section>
-
-    <section id="publish" class="section">
-        <div class="container">
-            <h2>Publications</h2>
-            <div class="paper">
-                <em>Soft Robotics</em>
-                <h3><a href="https://www.liebertpub.com/doi/10.1089/soro.2023.0111">Enhancing the Versatility and Performance of Soft Robotic Grippers, 
-                    Hands, and Crawling Robots Through Three-Dimensional-Printed Multifunctional Buckling Joints</a></h3>
-                <p>Chih-Wen Ou Yang, Shao-Yi Yu, Che-Wei Chan, <strong>Chien-Yao Tseng</strong>, Jing-Fang Cai, Han-Pang Huang, and Jia-Yang Juang </p>
-                <p>This study introduced vacuum-actuated soft robotic finger joints to overcome their limitations in stiffness,
-                    response, and load-carrying capability. </p>
-                <p>I contributed by implement a ball catching experiment to extend the usage range of the soft robotic hand.</p>
-            </div>
-            <div class="paper">
-                <em>ARIS 2024</em>
-                <h3>Carbon Fiber Robot Manipulator with Virtual Impedance Control</h3>
-                <p><strong>Chien-Yao Tseng</strong>, Han-Pang Huang</p> 
-                <p>This paper foucs on analysis the effect by the weight change of the robot arm.</p>
-            </div>
-        </div>
-    </section>
-    
-
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p>Email: tsengcy0411@gmail.com</p>
+            <h2>Result</h2>
+            <p>
+                在測試中本車用7:54出14桿進10球、以及8:54出18桿進9球。
+            </p>
         </div>
     </section>
 
