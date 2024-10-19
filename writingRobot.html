@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tsengcy CV</title>
+    <link rel="stylesheet" href="style_writingRobot.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <button class="top-left-button" onclick="window.location.href='./home.html';">
+                <img src="image/backmarker.png" id="back_image"/>
+            </button>
+            <h1>寫字機器人</h1>
+        </div>
+    </header>
+
+    <section id="introduction" class="section">
+        <div class="container">
+            <h2>Introduction</h2>
+            <p>
+                本專題利用電腦視覺與機器手臂做結合，嘗試利用電腦視覺作為迴授工具已達成閉迴路的控制。
+            </p>
+            <img src="image/writingRobot/ControlFlow.png" class="img"/>
+            <p class="text_img"><b>控制流程圖</b><br>本專題將傳統上利用編碼器(encoder)各軸的位置值取代為利用視覺系統以及Inverse Kinematics做計算</p>
+        </div>
+    </section>
+
+    <section id="Methodology" class="section">
+        <div class="container">
+            <h2>Methodology</h2>
+            <h3>硬體</h3>
+            <p>
+                本專題設計了實驗裝置如附圖，其中包含一隻RR機器手臂、繪圖平台、相機支架。其中RR機器手臂所使用的是連續旋轉的MG996R servo motor，
+                並利用Arduino控制馬達。為降低Arduino的用算負擔，將影像處理與Inverse kinematics等較複雜的計算由電腦計算，
+                再利用Serial port把給指令傳輸給Arduino。
+            </p>
+            <img src="image/writingRobot/writingRobot.png" class="img"/>
+            <p class="text_img"><b>寫字機器人</b>(左圖為CAD檔，右圖為實際成品)</p>
+            <h3>軟體</h3>
+            <p>
+                本專題利用影像辨識筆上的marker已得到機器手臂末端點的位置，接著再利用Inverse Kinematics計算機器手臂各軸的角度，
+                最後再利用PID與期望的軌跡計算控制的控制伺服馬達的速度值。同時為方便測試以及使用，本文利用Qt製作簡易UI提供使用者秤方便使用的系統。
+            </p>
+            <img src="image/writingRobot/software_structure.png" class="img"/>
+            <p class="text_img"><b>軟體架構</b></p>
+
+            <div class="video_container"> 
+                <iframe class="video" src="https://www.youtube.com/embed/6fJxVc3Syf8?si=4Uiqlff0e0gUhwqP" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+            
+        </div>
+    </section>
+
+    
+    <section id="experiment" class="section">
+        <div class="container">
+            <h2>Experiment and Result</h2>
+            <h3>Experiment 1</h3>
+            <p>繪製斜直線由左下的十字移動到右上的十字</p>
+            <img src="image/writingRobot/exp1_traj.png" class="img"/>
+            <p class="text_img"><b>實驗結果</b><br>左圖為實際繪製的結果，紅點為相機所觀測到機器手臂的末端點；右圖為軸的角度值。</p>
+            <div class="video_container"> 
+                <iframe class="video" src="https://www.youtube.com/embed/AwE11zUPli4?si=tz2mKhF1BHdyc6oc" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+            <br>
+            <h3>Experiment 2</h3>
+            <p>繪製方形</p>
+            <img src="image/writingRobot/square.jpg" class="imgs"/>
+            <p class="text_img"><b>實驗結果</b><br>黑線為實際繪製的結果，紅點為相機所觀測到機器手臂的末端點</p>
+            <div class="video_container"> 
+                <iframe class="video" src="https://www.youtube.com/embed/8hxQF0gIU-o?si=PKTJ0tjUD9UceH6E" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="discussion" class="section">
+        <div class="container">
+            <h2>Discussion</h2>
+            <p>由上方的實驗結果可以觀察到，各個筆跡與相機的觀測結果可以發現本實驗所採用的視覺系統是能有效的觀測到機器手臂末端點的位置，
+                但由筆跡與預期的軌跡相比較會發現差異較大，應該是因為視覺系統的速度相較於傳統的編碼器(encoder)慢，故無法較快的反應，
+                因此造成較大的overshoot，同時因為機器手臂設計存在較大的阻力造成機器手臂無法做出較為細微修正。</p>
+        </div>
+    </section>
+    
+
+    
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Chien-Yao Tseng. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
