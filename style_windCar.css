@@ -97,10 +97,36 @@ footer {
     max-width: 80%;
 }
 
-#img_UI{
+.img{
     height: auto;
-    width: 60%;
-    max-width: 80%;
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgs{
+    height: auto;
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text_img{
+    text-align: center;
+}
+
+ol {
+    list-style: disc;
+    padding-left: 20px;
+    color: #666;
+}
+
+ol li {
+    margin-bottom: 5px;
 }
 
 #controller{
@@ -118,20 +144,20 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
     width: 100%;
     height: 100%;
-    border: none;
+    border: 0;
 }
 .video_container {
     position: relative;
-    width: 60%;
-    /* height: 60%; */
+    width: 100%;
+    padding-bottom: 56.25%; /* This is for the 16:9 aspect ratio (9/16 = 0.5625 or 56.25%) */
+    height: 0;
     overflow: hidden;
-    padding-top: 33.774%; /* 16:9 Aspect Ratio */
-    /* padding-top: 56.25%; */
-  }
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 footer p {
     font-size: 0.9em;
