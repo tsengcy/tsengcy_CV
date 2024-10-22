@@ -129,7 +129,11 @@ a:hover {
 .text{
   text-align: center;
 }
-  
+ 
+.moreDetail
+{
+    color: blue;
+}
 
 footer {
     background-color: #333;
