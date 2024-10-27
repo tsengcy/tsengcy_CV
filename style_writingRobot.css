@@ -149,6 +149,39 @@ footer {
     margin-right: auto;
 }
 
+.bottom-links {
+    /* position: fixed; */
+    bottom: 10px; /* Adjust as needed */
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Two equal columns with center content */
+    align-items: center;
+    font-size: 1.1em; /* Adjust font size as needed */
+}
+
+#bottom-left
+{
+    text-align: right;
+    margin-right: 10px;
+}
+
+#bottom-right
+{
+    text-align: left;
+    margin-left: 10px;
+}
+
+.bottom-links a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* Optional hover styling */
+.bottom-links a:hover {
+    color: red;
+    text-decoration: none;
+}
+
 footer p {
     font-size: 0.9em;
 }

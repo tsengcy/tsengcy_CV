@@ -135,6 +135,26 @@ a:hover {
     color: blue;
 }
 
+.bottom-links {
+    /* position: fixed; */
+    bottom: 10px; /* Adjust as needed */
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    font-size: 1.1em; /* Adjust font size as needed */
+}
+
+.bottom-links a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* Optional hover styling */
+.bottom-links a:hover {
+    color: red;
+    text-decoration: none;
+}
+
 footer {
     background-color: #333;
     color: #fff;

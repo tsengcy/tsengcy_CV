@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="container" id="top">
             <h1>曾建堯 (Chien-Yao Tseng)</h1>
             <!-- <p>Robotics Engineer | Researcher</p> -->
         </div>
@@ -20,7 +20,7 @@
             <h2>About Me</h2>
             <p>
                 我是曾建堯，畢業於台大機械所系控組，碩士期間為<a href="http://140.112.14.70/" target="_blank"><u>機器人實驗室</u></a>之學生，在這期間擔任系統管理員協助實驗室的運行。
-                我擅長領域為控制系統、機電整合、機器人學、機器視覺。碩士論文主要研究有關Simultaneous localization and mapping(SLAM)
+                我擅長領域為控制系統、機電整合、機器人學、機器視覺。碩士論文主要研究有關Simultaneous localization and mapping (SLAM)
                 與機器手臂的整合應用、避障演算法、軌跡規劃演算法以及視覺伺服。
             </p>
         </div>
@@ -130,12 +130,15 @@
             <h2>Projects</h2>
             <div class="project">
                 <h3>撞球車</h3>
-                <p>本專題為機械設計原理的期末專題目標為設計一台車輛能透過遙控裝置控制車輛之動作，並控制其中設備利用竹筷作為撞擊工具撞擊場地中所有的球使其入袋。本專題利用滑塊曲柄機構拉動彈簧, 提供撞球所需的能量。同時利用Ps2搖桿與Arduino控制車輛的動作。(<a href="./ballCar.html"><u class="moreDetail">more details</u></a>)</p>
+                <p>
+                    本專題為機械設計原理的期末專題目標為設計一台車輛能透過遙控裝置控制車輛之動作，並控制其中設備利用竹筷作為撞擊工具撞擊場地中所有的球使其入袋。本專題利用滑塊曲柄機構拉動彈簧, 提供撞球所需的能量。同時利用Ps2搖桿與Arduino控制車輛的動作。
+                    (<a href="./ballCar.html"><u class="moreDetail">more details</u></a>)
+                </p>
                 <p>ability: 機構設計, Arduino, C++</p>
             </div>
             <div class="project">
                 <h3>撞球車AR</h3>
-                <p>本專題由撞球車做延伸, 以Unity與Vuforia Engine開發AR展示系統, 同時利用物理引擎實現在虛擬環境中執行撞球車的任務。 (<a href="./ballCar.html"><u class="moreDetail">more details</u></a>)</p>
+                <p>本專題由撞球車做延伸, 以Unity與Vuforia Engine開發AR展示系統, 同時利用物理引擎實現在虛擬環境中執行撞球車的任務。 (<a href="./ballCarAR.html"><u class="moreDetail">more details</u></a>)</p>
                 <p>ability: Unity, C#, Arduino</p>
             </div>
             <div class="project">
@@ -182,12 +185,17 @@
             <h2>Publications</h2>
             <div class="paper">
                 <em>Soft Robotics</em>
-                <h3><a href="https://www.liebertpub.com/doi/10.1089/soro.2023.0111" target="_blank"><u>Enhancing the Versatility and Performance of Soft Robotic Grippers, 
-                    Hands, and Crawling Robots Through Three-Dimensional-Printed Multifunctional Buckling Joints</u></a></h3>
+                <h3>Enhancing the Versatility and Performance of Soft Robotic Grippers, 
+                    Hands, and Crawling Robots Through Three-Dimensional-Printed Multifunctional Buckling Joints</h3>
                 <p>Chih-Wen Ou Yang, Shao-Yi Yu, Che-Wei Chan, <strong>Chien-Yao Tseng</strong>, Jing-Fang Cai, Han-Pang Huang, and Jia-Yang Juang </p>
-                <p>This study introduced vacuum-actuated soft robotic finger joints to overcome their limitations in stiffness,
-                    response, and load-carrying capability. </p>
-                <p>I contributed by implementing a ball-catching experiment to extend the functional range of the soft robotic hand.</p>
+                <p>
+                    This study introduced vacuum-actuated soft robotic finger joints to overcome their limitations in stiffness,
+                    response, and load-carrying capability. (<a href="https://www.liebertpub.com/doi/10.1089/soro.2023.0111" target="_blank"><u class="moreDetail">paper</u></a>)
+                </p>
+                <p>
+                    I contributed by implementing a ball-catching experiment to extend the functional range of the soft robotic hand.
+                    (<a href="./ballCatching.html" target="_blank"><u class="moreDetail">project</u></a>)
+                </p> 
             </div>
         </div>
     </section>
@@ -202,10 +210,7 @@
                 <p>This paper focuses on analyzing the effect of weight changes in the robot arm.</p>
             </div>
         </div>
-    </section>
-
-    
-    
+    </section>    
 
     <section id="contact" class="section">
         <div class="container">
@@ -213,6 +218,10 @@
             <p>Email: tsengcy0411@gmail.com</p>
         </div>
     </section>
+
+    <div class="bottom-links">
+        <a href="#top">Back to Top</a>
+    </div>
 
     <footer>
         <div class="container">
