@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tsengcy CV</title>
+    <link rel="stylesheet" href="style_ARMSLAM.css">
+</head>
+<body>
+    <header>
+        <div class="container" id="top">
+            <button class="top-left-button" onclick="window.location.href='./home.html';">
+                <img src="image/backmarker.png" id="back_image"/>
+            </button>
+            <h1>ARMSLAM</h1>
+        </div>
+    </header>
+
+    <section id="introduction" class="section">
+        <div class="container">
+            <h2>Introduction</h2>
+            <p>
+                本研究目標將Simultaneous localization and mapping (SLAM)與機器手臂結合，以增加機器手臂的應用範圍。
+                同時在系統中加入避障演算法 Virtual Impedance Control 以確保機器手臂運行時的安全性。最後，利用引入新穎的6D姿態偵測演算法進行visual servoing的任務。
+            </p>
+        </div>
+    </section>
+
+    <section id="Methodology" class="section">
+        <div class="container">
+            <h2>Methodology</h2>
+            <p>
+                本文將ARMSLAM分成兩個部分，Mapping與Localization,
+                <ol>
+                    <li><b>Mapping</b>: 利用ORBSLAM3結合YOLOv8對環境建圖，並及時提供相機的位置</li>
+                    <li><b>Localization</b>: 利用Mappin所建立的地圖控制機器手臂移動到指定位置</li>
+                </ol>
+            </p>
+            
+            
+            <h3>Mapping</h3>
+            <p>
+                本研究基於本實驗室過去所開發的系統利用ORBSLAM3與YOLOv8整合的系統，透過將影像中指定物件移除(如：人、機器手臂)，
+                確保SLAM在匹配時不會發生問題，以及利用Point cloud所建立的地圖不會出現非預期的物件。
+            </p>
+            <img src="image/ARMSLAM/SLAM+YOLOv8.png" class="img"/>
+            <p class="text_img"><b>ORBSLAM3+YOLOv8</b><br>利用YOLOv8濾除影像中的動態物件以解決ORBSLAM3在動態環境中的匹配問題</p>
+
+            <p>並且為解決YOLOv8自定義在資料量不足的情況下無法有效預測物件，本文採用後處理的方式統計並濾除目標物件在空間中的位置。</p>
+            
+            <img src="image/ARMSLAM/SLAM.png" class="img"/>
+            <p class="text_img">
+                <b>SLAM過濾非預期物件</b><br>由左方兩張圖片可以顯示利用YOLOv8訓練並辨識自定義的物件會出現無法有效預期的情況。
+                右上圖片顯示如果沒有濾除會造成殘留物件出現在畫面中。右下圖片則顯示濾除後的結果
+            </p>
+            <h3>Localization</h3>
+            <p>
+                本研究首先利用環境地圖與軌跡規劃演算法計算軌跡機器手臂移動到指定位置，
+                接著利用兩階段的控制策略控制機器手臂移動到指定的位置。
+            </p>
+
+            <img src="image/ARMSLAM/localization.png" class="img"/>
+            <p class="text_img"><b>Localization流程圖</b></p>
+            <h3>軌跡規劃</h3>
+            <p>
+                此部分整合<a href="https://github.com/flexible-collision-library/fcl" target="_blank"><b>Flexible Collision Library</b></a>與<a href="https://ompl.kavrakilab.org/"><b>Open Motion Planning Library</b></a>
+                ，利用先前所建立的地圖，透過一系列的步驟生成出軌跡提供機器手臂做使用。
+            </p>
+            <img src="image/ARMSLAM/planning.png" class="img"/>
+            <p class="text_img"><b>軌跡規劃流程圖</b></p>
+        
+            <h3>First Stage Control</h3>
+            <p>
+                第一階段控制目標是機器手臂能追隨軌跡同時躲避非預期的障礙物使機器手臂能安全地移動到目標點周圍。
+                <ul>
+                    <li>Modified Virtual Impedance Control</li>
+                </ul>
+            </p>
+            <p>
+                本研究基於本實驗室過去開發的Virtual Impedance Control做延伸，首先利用膠囊形狀的碰撞邊界取代球形碰撞邊界以更加貼合機器手臂的形狀；
+                接著，OpenCV提供的前景/背景分離的算法，分離出動態、靜態物體。
+                最後，面對動態物體以Virtual Impedance Control做避障，靜態物體則利用Artificial Potential Field(APF)做避障。
+            </p>
+            <img src="image/ARMSLAM/mvic1.png" class="img"/>
+            <p class="text_img"><b>修改碰撞邊界</b></p>
+            <img src="image/ARMSLAM/cv2.png" class="img"/>
+            <p class="text_img"><b>動態障礙物預測策略</b></p>
+            <img src="image/ARMSLAM/equation.png" class="img"/>
+            <p class="text_img"><b>靜態障礙物躲避策略</b><br>本文透過APF躲避靜態障礙物並修改使其能平滑的離開local minima</p>
+
+            <h3>Second Stage Control</h3>
+            <p>
+                第二階段控制透過視覺伺服控制機器手臂精確的移動到目標點。
+                <ul>
+                    <li>Markerless visual servoing</li>
+                </ul>
+            <p>
+                本文利用<a href="https://github.com/NVlabs/FoundationPose" target="_blank"><b>FoundationPose</b></a>定位機器手臂的末端點，
+                並透過位置視覺伺服(Position Based Visual Servoing)控制機器手臂的動作，使機器手臂移動到目標點。
+            </p>
+
+            <img src="image/ARMSLAM/second_stage_control.png" class="img"/>
+            <p class="text_img"><b>Second Stage Control</b><br>利用Foundation Pose預測機器手臂末端點，再利用PI control控制機器手臂的移動</p>
+
+            <h3>Setup</h3>
+            <p>
+                本文利用兩台電腦做控制，Computer 1(Window)執行本實驗室研發的機器人作業系統。於Computer 2(Linux)運行ArmSLAM系統，首先Realsense接收影像利用Publisher發佈給ArmSLAM program與ORBSLAM3。
+                ORBSLAM3會建立環境地圖並計算即時相機的位置並利用Service Client給核心程式。ArmSLAM系統主要是運行Localization的部分，其中藉由實現機器人學的系統來控制機器人，
+                並且利用Socket傳輸影像與FoundationPose做溝通以計算EndEffector的位置。最後控制訊號是透過Socket以200Hz的速度傳送給Computer 1並接收當下機器手臂的位置做後續控制。
+            </p>
+            <img src="image/ARMSLAM/hardware system.png" class="img"/>
+            <p class="text_img"><b>Hardware Setup</b></p>
+            <img src="image/ARMSLAM/software_setup.png" class="img"/>
+            <p class="text_img"><b>Software Setup</b></p>
+        </div>
+    </section>
+
+    <section id="discussion" class="section">
+        <div class="container">
+            <h2>Result</h2>
+            <div class="video_container"> 
+                <iframe class="video" src="https://www.youtube.com/embed/x086FJIu-bU?si=T58s_5oTy8jSQUdW" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+            <p><br></p>
+            <div class="video_container"> 
+                <iframe class="video" src="https://www.youtube.com/embed/7MuU-MjNr0k?si=2srDlvgd7xw2pogX" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="discussion" class="section">
+        <div class="container">
+            <h2>Discussion</h2>
+            <p>上方的影片可以顯示本研究所提出的ARMSLAM架構能有效的躲避障礙物，同時利用建構出來的地圖能有效的規劃以及控制機器人的行動。</p>
+
+        </div>
+    </section>
+    
+    <div class="bottom-links">
+        <a href="#top" id="bottom-left">Back to Top</a>
+        <span>|</span>
+        <a href="./home.html#projects" id="bottom-right">Back to Projects</a>
+    </div>
+    
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Chien-Yao Tseng. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
