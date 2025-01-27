@@ -85,6 +85,11 @@ ol li {
     margin-bottom: 30px;
 }
 
+.lii{
+    font-size: 1.1em;
+    font-family: Arial, sans-serif;
+}
+
 a {
     color: #333;
     text-decoration: none;
@@ -186,6 +191,8 @@ footer {
 footer p {
     font-size: 0.9em;
 }
+
+
 
 @media screen and (max-width: 768px) {
     header h1 {
