@@ -105,8 +105,8 @@
 
             <h3>Setup</h3>
             <p>
-                本文利用兩台電腦做控制，Computer 1(Window)執行本實驗室研發的機器人作業系統。於Computer 2(Linux)運行ArmSLAM系統，首先Realsense接收影像利用Publisher發佈給ArmSLAM program與ORBSLAM3。
-                ORBSLAM3會建立環境地圖並計算即時相機的位置並利用Service Client給核心程式。ArmSLAM系統主要是運行Localization的部分，其中藉由實現機器人學的系統來控制機器人，
+                本文利用兩台電腦做控制，Computer 1(Windows)執行本實驗室研發的機器人作業系統。於Computer 2(Linux)運行ArmSLAM系統，首先Realsense接收影像利用Publisher發佈給ArmSLAM program與ORBSLAM3。
+                ORBSLAM3會建立環境地圖並計算即時相機的位置並利用Service Client傳送給ARMSLAM program。ARMSLAM program主要是運行Localization的部分，其中藉由實現機器人學的系統來控制機器人，
                 並且利用Socket傳輸影像與FoundationPose做溝通以計算EndEffector的位置。最後控制訊號是透過Socket以200Hz的速度傳送給Computer 1並接收當下機器手臂的位置做後續控制。
             </p>
             <img src="image/ARMSLAM/hardware system.png" class="img"/>
